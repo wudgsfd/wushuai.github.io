@@ -106,9 +106,9 @@ img{max-width:100%;display:block}
   gap:5px;
   font-size:12.5px;
 }
-.links div{display:flex;gap:9px;align-items:baseline}
+.links div{display:flex;gap:12px;align-items:baseline}
 .links .lk{
-  flex:0 0 34px;
+  flex:0 0 46px;
   color:var(--ink-4);
   font-size:11px;
   letter-spacing:.08em;
