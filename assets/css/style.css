@@ -83,6 +83,31 @@ body.has-bg .col{
   body.has-bg::before{animation:none;opacity:1}
 }
 
+/* ---------- 桌面：双栏固定，右栏内部滚动（仅首页） ---------- */
+@media (min-width:821px){
+  body.has-bg{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+  body.has-bg .topnav{position:static;flex:0 0 auto}
+  body.has-bg main{flex:1 1 auto;min-height:0;display:flex;justify-content:center;overflow:hidden}
+  body.has-bg main > .wrap{width:100%;max-width:var(--maxw);padding:0 28px;min-height:0;display:flex}
+  body.has-bg main > .wrap > .home{width:100%;min-height:0;align-items:stretch;padding:26px 0 18px}
+  body.has-bg .rail{align-self:start;position:static;max-height:100%;overflow:auto}
+  body.has-bg .col{
+    height:100%;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    scroll-behavior:smooth;
+    scroll-padding-top:18px;
+    margin:0 -28px 0;
+    padding:22px 28px 34px;
+  }
+  body.has-bg .col > section:first-of-type .sec-title{margin-top:0}
+  body.has-bg .col::-webkit-scrollbar{width:9px}
+  body.has-bg .col::-webkit-scrollbar-track{background:transparent}
+  body.has-bg .col::-webkit-scrollbar-thumb{background:rgba(21,23,28,.16);border-radius:9px}
+  body.has-bg .col::-webkit-scrollbar-thumb:hover{background:rgba(21,23,28,.3)}
+  body.has-bg footer{flex:0 0 auto;margin-top:0;border-top:1px solid var(--line);padding:10px 0}
+}
+
 /* ---------- 顶栏 ---------- */
 .topnav{
   position:sticky;top:0;z-index:10;
