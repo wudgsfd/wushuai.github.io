@@ -20,6 +20,9 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# 写当天文章时，日期可能晚于构建时刻；打开后不会再被"未来文章"规则过滤
+future: true
+
 exclude:
   - README.md
   - Gemfile
