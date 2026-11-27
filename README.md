@@ -2,11 +2,9 @@
 
 GitHub Pages + Jekyll。写 Markdown，推送即发布。线上地址 `https://wudgsfd.github.io/wushuai.github.io/`。
 
-## 文件结构
-
 | 文件 | 用途 |
 | --- | --- |
-| `index.html` | 首页：简介、教育背景、成果概览、研究方向、最新文章、联系方式 |
+| `index.html` | 首页个人介绍（姓名、简介、成果、联系方式） |
 | `_config.yml` | 站点配置：姓名、副标题、`baseurl`、时区 |
 | `_posts/` | 文章源文件，一篇一个 md |
 | `_layouts/default.html` | 顶栏、页脚、head 元信息 |
@@ -27,13 +25,7 @@ GitHub Pages + Jekyll。写 Markdown，推送即发布。线上地址 `https://w
 
 文件名用英文或拼音（会进网址），标题照常写中文。
 
-## 上线前需要替换
-
-- `index.html` 与 `_config.yml` 中的邮箱 `wushuai@example.com` 请改成真实邮箱。
-- 如有头像，放到 `assets/avatar.jpg`；当前首页首字母头像为占位样式。
-- 论文、专利、软著条目可在首页 `成果概览` 与 `研究方向` 中补充具体标题、出处和链接。
-
 ## 两个禁忌
 
-- **不要加 `.nojekyll`**：会关闭 Jekyll 构建，文章列表全部失效。
-- **图片不能写 `/assets/img/x.jpg`**：站点在子路径下，必须写 `{{ '/assets/img/x.jpg' | relative_url }}`。
+- **不要加 `.nojekyll`**：会关闭 Jekyll 构建，文章列表全部失效
+- **图片不能写 `/assets/img/x.jpg`**：站点在子路径下，必须写 `{{ '/assets/img/x.jpg' | relative_url }}`

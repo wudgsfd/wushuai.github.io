@@ -5,10 +5,12 @@ description: 吴帅的全部文章，按年份排列。
 ---
 <div class="wrap">
   <div class="archive">
+
     <div class="archive-head">
       <h1>文章归档</h1>
       <p>共 {{ site.posts.size }} 篇</p>
     </div>
+
     {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
     {% for group in posts_by_year %}
     <div class="year">{{ group.name }}</div>
@@ -19,8 +21,10 @@ description: 吴帅的全部文章，按年份排列。
     </div>
     {% endfor %}
     {% endfor %}
+
     {% if site.posts.size == 0 %}
     <p style="margin-top:20px;font-size:14px">还没有文章。在 <code>_posts/</code> 里新建一个 Markdown 文件即可。</p>
     {% endif %}
+
   </div>
 </div>
