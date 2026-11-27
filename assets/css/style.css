@@ -108,6 +108,8 @@ p{margin:0 0 12px;color:var(--ink-2)}
   line-height:1.75;
 }
 .kv .k{color:var(--ink-3)}
+.kv-date{grid-template-columns:168px 1fr}
+.kv-date .k{font-variant-numeric:tabular-nums;font-size:13.5px}
 .kv .v{color:var(--ink-2)}
 
 /* ---------- 论文 / 成果列表 ---------- */
