@@ -52,7 +52,7 @@ body.has-bg::before{
   top:-2%;left:-2%;
   width:104%;height:104%;
   background:url("../media/bg-sketch.jpg") center/cover no-repeat;
-  filter:blur(2.5px) brightness(1.14) contrast(.72);
+  filter:blur(2.5px) brightness(1.16) contrast(.66);
   z-index:-2;
   pointer-events:none;
   opacity:0;
@@ -66,15 +66,18 @@ body.has-bg::after{
   z-index:-1;
   pointer-events:none;
 }
-/* 背景之上给正文区一层半透明纸衬底：页边仍露清晰线稿，文字落在干净底上 */
+/* 背景之上给正文区一层半透明纸衬底：左右边缘渐隐，与背景柔和衔接 */
 body.has-bg .col{
-  background:rgba(252,251,248,.74);
-  -webkit-backdrop-filter:blur(9px) saturate(1.04);
-  backdrop-filter:blur(9px) saturate(1.04);
-  border-radius:12px;
+  background:linear-gradient(90deg,
+    rgba(252,251,248,0) 0,
+    rgba(252,251,248,.62) 26px,
+    rgba(252,251,248,.62) calc(100% - 26px),
+    rgba(252,251,248,0) 100%);
+  -webkit-backdrop-filter:blur(10px) saturate(1.02);
+  backdrop-filter:blur(10px) saturate(1.02);
+  border-radius:10px;
   padding:12px 28px 32px;
   margin:-12px -28px 0;
-  box-shadow:0 1px 2px rgba(21,23,28,.03),0 16px 36px -26px rgba(21,23,28,.22);
 }
 @media (prefers-reduced-motion:reduce){
   body.has-bg::before{animation:none;opacity:1}
