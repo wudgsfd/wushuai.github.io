@@ -60,11 +60,11 @@ img{max-width:100%;display:block}
 body::after{
   content:"";
   position:fixed;inset:0;
-  background:linear-gradient(180deg,rgba(251,250,247,.78) 0%,rgba(251,250,247,.90) 100%);
+  background:linear-gradient(180deg,rgba(251,250,247,.68) 0%,rgba(251,250,247,.82) 100%);
   z-index:-1;
   pointer-events:none;
 }
-@media (max-width:900px){
+@media (max-width:768px){
   .bgvid{display:none}
 }
 @media (prefers-reduced-motion:reduce){
