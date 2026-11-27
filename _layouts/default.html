@@ -6,7 +6,7 @@
 {% if page.title %}
 <title>{{ page.title }} · {{ site.title }}</title>
 {% else %}
-<title>{{ site.title }} · 安徽信息工程学院辅导员</title>
+<title>{{ site.title }} · 安徽信息工程学院</title>
 {% endif %}
 {% assign desc = page.description | default: site.description %}
 <meta name="description" content="{{ desc | strip_html | normalize_whitespace | truncate: 160 }}">
@@ -32,7 +32,8 @@
   <div class="wrap">
     <a href="{{ '/' | relative_url }}" class="brand">{{ site.title }}</a>
     <a href="{{ '/' | relative_url }}#about">简介</a>
-    <a href="{{ '/' | relative_url }}#publications">研究与成果</a>
+    <a href="{{ '/' | relative_url }}#publications">论文</a>
+    <a href="{{ '/' | relative_url }}#patents">专利</a>
     <a href="{{ '/archive/' | relative_url }}">文章</a>
     <a href="{{ '/' | relative_url }}#contact">联系方式</a>
   </div>

@@ -123,6 +123,16 @@ p{margin:0 0 12px;color:var(--ink-2)}
 .pub .m{font-size:13px;color:var(--ink-3);line-height:1.7;margin:3px 0 0}
 .pub .m em{font-style:normal;color:var(--ink-2)}
 
+/* 紧凑条目（专利、软著等） */
+.lite{list-style:none;margin:4px 0 0;padding:0}
+.lite li{
+  font-size:13.5px;
+  line-height:1.85;
+  color:var(--ink-3);
+  padding-left:1em;
+  text-indent:-1em;
+}
+
 /* ---------- 文章列表 ---------- */
 .wlist{margin:0;padding:0;list-style:none}
 .witem{
