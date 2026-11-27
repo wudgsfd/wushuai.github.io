@@ -23,11 +23,12 @@
 html{
   -webkit-text-size-adjust:100%;
   scroll-padding-top:72px;
+  background:var(--bg);
 }
 
 body{
   margin:0;
-  background:var(--bg);
+  background:transparent;
   color:var(--ink-2);
   font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   font-size:16.2px;
@@ -42,6 +43,33 @@ a:hover{text-decoration:underline;text-underline-offset:2px}
 img{max-width:100%;display:block}
 
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- 动态背景（仅首页） ---------- */
+.bgvid{
+  position:fixed;
+  top:-4%;left:-4%;
+  width:108%;height:108%;
+  object-fit:cover;
+  filter:blur(12px) saturate(.86);
+  z-index:-2;
+  pointer-events:none;
+  opacity:0;
+  animation:bgIn 1.4s ease .15s forwards;
+}
+@keyframes bgIn{to{opacity:.9}}
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  background:linear-gradient(180deg,rgba(251,250,247,.78) 0%,rgba(251,250,247,.90) 100%);
+  z-index:-1;
+  pointer-events:none;
+}
+@media (max-width:900px){
+  .bgvid{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .bgvid{display:none;animation:none}
+}
 
 /* ---------- 顶栏 ---------- */
 .topnav{

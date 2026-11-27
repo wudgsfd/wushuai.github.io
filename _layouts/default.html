@@ -28,6 +28,12 @@
 </head>
 <body>
 
+{% if page.url == '/' %}
+<video class="bgvid" autoplay muted loop playsinline preload="auto" poster="{{ '/assets/media/bg-beach.jpg' | relative_url }}" aria-hidden="true">
+  <source src="{{ '/assets/media/bg-beach.mp4' | relative_url }}" type="video/mp4">
+</video>
+{% endif %}
+
 <nav class="topnav">
   <div class="wrap">
     <a href="{{ '/' | relative_url }}" class="brand">{{ site.title }}</a>
