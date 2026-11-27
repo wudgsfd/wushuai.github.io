@@ -104,6 +104,30 @@ description: 吴帅，安徽信息工程学院，模式识别与智能系统硕�
         <div class="kv"><div class="k">其他</div><div class="v">英语六级（CET-6）</div></div>
       </section>
 
+      <section id="writing">
+        <h2 class="sec-title">文章</h2>
+        {% if site.posts.size > 0 %}
+        <ul class="wlist">
+          {% for post in site.posts limit:5 %}
+          <li class="witem">
+            <span class="d">{{ post.date | date: '%Y.%m.%d' }}</span>
+            <span>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              {% if post.tags.size > 0 %}
+              <span style="display:block;font-size:12.5px;color:var(--ink-4);letter-spacing:.02em;margin-top:2px">{{ post.tags | join: ' · ' }}</span>
+              {% endif %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+        <p style="margin:14px 0 0;font-size:13px">
+          <a href="{{ '/archive/' | relative_url }}">查看全部 {{ site.posts.size }} 篇 →</a>
+        </p>
+        {% else %}
+        <p style="margin:0;font-size:14px">还没有文章。在 <code>_posts/</code> 里新建一个 Markdown 文件即可。</p>
+        {% endif %}
+      </section>
+
       <section id="contact">
         <h2 class="sec-title">联系方式</h2>
         <div class="kv"><div class="k">邮箱</div><div class="v"><a href="mailto:2023210912@jou.edu.cn">2023210912@jou.edu.cn</a></div></div>
