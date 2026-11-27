@@ -18,7 +18,7 @@ layout: default
 
     {% if page.tags.size > 0 %}
     <div class="article-tags">
-      {% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}
+      {% for tag in page.tags %}<span><a href="{{ '/archive/' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a></span>{% endfor %}
     </div>
     {% endif %}
 

@@ -321,6 +321,26 @@ p{margin:0 0 13px;color:var(--ink-2)}
 .arow a{color:var(--ink)}
 .arow a:hover{color:var(--accent)}
 
+/* ---------- 标签筛选 ---------- */
+.tagbar{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 10px}
+.tagbtn{
+  font:inherit;font-size:13px;line-height:1;
+  padding:8px 12px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;
+  color:var(--ink-3);cursor:pointer;
+  transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+}
+.tagbtn:hover{border-color:var(--accent);color:var(--accent)}
+.tagbtn.is-on{background:var(--accent);border-color:var(--accent);color:#fff}
+.tagbtn span{opacity:.6;margin-left:3px;font-variant-numeric:tabular-nums}
+.article-tags a{color:inherit;border-bottom:1px dotted var(--line)}
+.article-tags a:hover{color:var(--accent);text-decoration:none}
+
+@media (max-width:600px){
+  .tagbar{gap:6px;margin:20px 0 8px}
+  .tagbtn{font-size:12px;padding:7px 10px}
+}
+
 /* ---------- 页脚 ---------- */
 footer{
   border-top:1px solid var(--line);
