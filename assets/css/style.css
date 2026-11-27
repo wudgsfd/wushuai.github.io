@@ -44,31 +44,29 @@ img{max-width:100%;display:block}
 
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* ---------- 动态背景（仅首页） ---------- */
-.bgvid{
+/* ---------- 站点背景（仅首页） ---------- */
+body.has-bg::before{
+  content:"";
   position:fixed;
-  top:-4%;left:-4%;
-  width:108%;height:108%;
-  object-fit:cover;
-  filter:blur(12px) saturate(.86);
+  top:-3%;left:-3%;
+  width:106%;height:106%;
+  background:url("../media/bg-sketch.jpg") center/cover no-repeat;
+  filter:blur(9px) brightness(1.05) contrast(.92);
   z-index:-2;
   pointer-events:none;
   opacity:0;
-  animation:bgIn 1.4s ease .15s forwards;
+  animation:bgIn 1.2s ease .2s forwards;
 }
-@keyframes bgIn{to{opacity:.9}}
-body::after{
+@keyframes bgIn{to{opacity:.85}}
+body.has-bg::after{
   content:"";
   position:fixed;inset:0;
-  background:linear-gradient(180deg,rgba(251,250,247,.68) 0%,rgba(251,250,247,.82) 100%);
+  background:linear-gradient(180deg,rgba(251,250,247,.56) 0%,rgba(251,250,247,.70) 100%);
   z-index:-1;
   pointer-events:none;
 }
-@media (max-width:768px){
-  .bgvid{display:none}
-}
 @media (prefers-reduced-motion:reduce){
-  .bgvid{display:none;animation:none}
+  body.has-bg::before{animation:none;opacity:.85}
 }
 
 /* ---------- 顶栏 ---------- */

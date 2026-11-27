@@ -26,13 +26,7 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 {% feed_meta %}
 </head>
-<body>
-
-{% if page.url == '/' %}
-<video class="bgvid" autoplay muted loop playsinline preload="auto" poster="{{ '/assets/media/bg-beach.jpg' | relative_url }}" aria-hidden="true">
-  <source src="{{ '/assets/media/bg-beach.mp4' | relative_url }}" type="video/mp4">
-</video>
-{% endif %}
+<body{% if page.url == '/' %} class="has-bg"{% endif %}>
 
 <nav class="topnav">
   <div class="wrap">
