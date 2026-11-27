@@ -3,52 +3,46 @@ layout: default
 ---
 <div class="wrap">
   <article class="article">
-    <header class="article-head">
-      <div class="article-meta">
-        <span>{{ page.date | date: '%Y 年 %m 月 %d 日' }}</span>
-        <span class="dot"></span>
-        {% assign chars = page.content | strip_html | strip | size %}
-        <span>约 {{ chars | divided_by: 350 | plus: 1 }} 分钟</span>
-        {% if page.categories.size > 0 %}
-        <span class="dot"></span>
-        <span>{{ page.categories | join: ' · ' }}</span>
-        {% endif %}
-      </div>
+    <div class="article-meta">
+      {{ page.date | date: '%Y 年 %m 月 %d 日' }}
+      {% assign chars = page.content | strip_html | strip | size %}
+      · 约 {{ chars | divided_by: 350 | plus: 1 }} 分钟
+      {% if page.categories.size > 0 %} · {{ page.categories | join: ' · ' }}{% endif %}
+    </div>
 
-      <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
 
-      {% if page.description %}
-      <p class="article-lead">{{ page.description }}</p>
-      {% endif %}
+    {% if page.description %}
+    <p class="article-lead">{{ page.description }}</p>
+    {% endif %}
 
-      {% if page.tags.size > 0 %}
-      <div class="article-tags">
-        {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-      </div>
-      {% endif %}
-    </header>
+    {% if page.tags.size > 0 %}
+    <div class="article-tags">
+      {% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
 
     <div class="prose">
       {{ content }}
     </div>
-
-    {% if page.previous or page.next %}
-    <nav class="article-nav">
-      {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}">
-        <span class="k">← 上一篇</span>
-        <span class="v">{{ page.previous.title }}</span>
-      </a>
-      {% else %}
-      <span class="spacer"></span>
-      {% endif %}
-      {% if page.next %}
-      <a class="next" href="{{ page.next.url | relative_url }}">
-        <span class="k">下一篇 →</span>
-        <span class="v">{{ page.next.title }}</span>
-      </a>
-      {% endif %}
-    </nav>
-    {% endif %}
   </article>
+
+  {% if page.previous or page.next %}
+  <nav class="article-nav">
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}">
+      <span class="k">← 上一篇</span>
+      {{ page.previous.title }}
+    </a>
+    {% else %}
+    <span class="spacer"></span>
+    {% endif %}
+    {% if page.next %}
+    <a class="next" href="{{ page.next.url | relative_url }}">
+      <span class="k">下一篇 →</span>
+      {{ page.next.title }}
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
 </div>

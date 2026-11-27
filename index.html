@@ -1,328 +1,96 @@
 ---
 layout: default
-description: 吴帅，安徽信息工程学院辅导员，模式识别与智能系统硕士。研究方向：教育推荐系统、学习者行为建模与虚假新闻检测。这里记录每天的读写与思考。
+description: 吴帅，安徽信息工程学院辅导员，模式识别与智能系统硕士。研究方向：教育推荐系统、学习者行为建模、虚假新闻检测。
 ---
-<div class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="kicker"><b>·</b> Personal Page · {{ site.time | date: '%Y' }}</div>
-        <h1>吴帅</h1>
-        <p class="name-en">Wu Shuai</p>
-        <p class="role">
-          <strong>安徽信息工程学院</strong> 辅导员<br>
-          模式识别与智能系统 · 硕士
-        </p>
-        <p class="tagline">做两件事：<br>让推荐算法更懂<em>学习者</em>，<br>让思政工作更懂<em>学生</em>。</p>
-        <div class="chips">
-          <span class="chip">中共党员</span>
-          <span class="chip">安徽 · 芜湖</span>
-          <span class="chip">教育推荐系统</span>
-          <span class="chip">虚假新闻检测</span>
-        </div>
-        <div class="actions">
-          <a class="btn btn-primary" href="{{ '/archive/' | relative_url }}">
-            读我的文章
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="#research">研究方向</a>
-        </div>
-      </div>
-      <div class="portrait">
-        <div class="portrait-line"></div>
-        <div class="portrait-frame">
-          <img src="{{ '/assets/avatar.jpg' | relative_url }}" alt="吴帅的头像插画" width="720" height="720" loading="eager">
-        </div>
-        <div class="portrait-tag">辅导员 · 研究者</div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="wrap">
 
-<!-- ===== 最新文章 ===== -->
-<section id="posts">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">01 — Writing</div>
-      <h2>最新文章</h2>
-      <p>每天写一点：读过的、想过的、做过的。写下来才算真的想明白。</p>
-    </div>
+  <header class="site-head">
+    <h1>吴帅</h1>
+    <p class="affil">安徽信息工程学院 · 辅导员</p>
+    <p class="meta-line">模式识别与智能系统 硕士 · 安徽芜湖 · <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <!-- 想放照片就启用下面这行（图片放 assets/photo.jpg） -->
+    <!-- <img src="{{ '/assets/photo.jpg' | relative_url }}" alt="吴帅" style="width:120px;margin:22px 0 0"> -->
+  </header>
 
-    <div class="post-list reveal reveal-d1">
-      {% for post in site.posts limit: 5 %}
-      <a class="post-row" href="{{ post.url | relative_url }}">
-        <div class="post-date">{{ post.date | date: '%Y.%m.%d' }}</div>
+  <section id="about">
+    <h2 class="sec-title">简介</h2>
+    <p>硕士毕业于江苏海洋大学模式识别与智能系统专业，本科就读于安徽大学江淮学院计算机科学与技术专业。现就职于安徽信息工程学院，担任辅导员。</p>
+    <p>研究关注教育数据挖掘与推荐系统：以学习者行为序列为基础，建模兴趣漂移与知识状态变化，为自适应学习平台提供更贴合个体节奏的推荐结果。同时关心虚假新闻检测中的内容语义与传播结构建模。学生工作方面，把同一套数据思维用在班级管理、奖助认定与升学就业引导上。</p>
+
+    <div class="kv">
+      <div class="k">研究方向</div>
+      <div class="v">教育推荐系统 · 学习者行为建模 · 虚假新闻检测 · 思政教育数字化</div>
+    </div>
+    <div class="kv">
+      <div class="k">现任职</div>
+      <div class="v">安徽信息工程学院 辅导员（班级管理、思政教育、学生事务）</div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="sec-title">教育与任职</h2>
+    <div class="kv"><div class="k">硕士</div><div class="v">江苏海洋大学 · 模式识别与智能系统</div></div>
+    <div class="kv"><div class="k">本科</div><div class="v">安徽大学江淮学院 · 计算机科学与技术</div></div>
+    <div class="kv"><div class="k">曾任</div><div class="v">学习委员、组织部副部长</div></div>
+  </section>
+
+  <section id="publications">
+    <h2 class="sec-title">研究与成果</h2>
+
+    <div class="kv"><div class="k">SCI 论文</div><div class="v">2 篇（教育推荐、学习行为建模）</div></div>
+    <div class="kv"><div class="k">发明专利</div><div class="v">2 项（实质审查阶段）</div></div>
+    <div class="kv"><div class="k">软件著作权</div><div class="v">4 项</div></div>
+    <div class="kv" style="margin-bottom:26px"><div class="k">科研参与</div><div class="v">国家自然科学基金项目申报书撰写</div></div>
+
+    <ol class="pubs">
+      <li class="pub">
+        <span class="num">1.</span>
         <div>
-          <div class="post-title">{{ post.title }}</div>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 96 }}</p>
+          <div class="t">DynLearn-Adapt：面向学习者行为漂移的自适应推荐模型</div>
+          <p class="m">吴帅 等 · <em>IEEE Transactions on Consumer Electronics</em> · SCI</p>
+          <p class="m">以行为序列中的兴趣迁移为切入点，构建可随学习阶段调整的表示；多基线对比含显著性检验（p &lt; 0.05）。</p>
         </div>
-        <div class="post-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M12 5l7 7-7 7"/></svg></div>
-      </a>
+      </li>
+      <li class="pub">
+        <span class="num">2.</span>
+        <div>
+          <div class="t">OULA：面向在线学习的学习者行为数据集</div>
+          <p class="m">吴帅 等 · 自建数据集，配套上述工作</p>
+          <p class="m">用于验证行为漂移建模效果，评价指标为 HR@K、NDCG@K、MRR。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="service">
+    <h2 class="sec-title">学生工作</h2>
+    <div class="kv"><div class="k">班团建设</div><div class="v">班级制度、宿舍走访、安全教育与心理关注</div></div>
+    <div class="kv"><div class="k">奖助认定</div><div class="v">按节点归集材料、交叉校验数据，兼顾公平与可追溯</div></div>
+    <div class="kv"><div class="k">入党指导</div><div class="v">从递交申请书到转正，梳理材料规范与时间节点</div></div>
+    <div class="kv"><div class="k">升学就业</div><div class="v">面向考研与求职两条路径做信息整理与经验对接</div></div>
+  </section>
+
+  <section id="writing">
+    <h2 class="sec-title">最新文章</h2>
+    <ul class="wlist">
+      {% for post in site.posts limit: 6 %}
+      <li class="witem">
+        <span class="d">{{ post.date | date: '%Y.%m.%d' }}</span>
+        <span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+      </li>
       {% endfor %}
       {% if site.posts.size == 0 %}
-      <p class="empty-note">还没有文章。第一篇正在路上。</p>
+      <li class="witem"><span class="d">—</span><span>还没有文章。</span></li>
       {% endif %}
-    </div>
+    </ul>
+    <p style="margin-top:14px;font-size:13.5px"><a href="{{ '/archive/' | relative_url }}">全部文章（{{ site.posts.size }} 篇）→</a></p>
+  </section>
 
-    <div class="post-more">
-      <a class="btn btn-ghost" href="{{ '/archive/' | relative_url }}">
-        全部 {{ site.posts.size }} 篇
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
+  <section id="contact">
+    <h2 class="sec-title">联系方式</h2>
+    <div class="kv"><div class="k">邮箱</div><div class="v"><a href="mailto:your-email@example.com">your-email@example.com</a></div></div>
+    <div class="kv"><div class="k">GitHub</div><div class="v"><a href="https://github.com/wudgsfd" target="_blank" rel="noopener">github.com/wudgsfd</a></div></div>
+    <div class="kv"><div class="k">地址</div><div class="v">安徽省芜湖市湾沚区 · 安徽信息工程学院</div></div>
+  </section>
 
-<!-- ===== 关于 ===== -->
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <div class="sec-eyebrow">02 — About</div>
-        <h2>关于我</h2>
-        <p>我是吴帅，硕士毕业于江苏海洋大学模式识别与智能系统专业，本科就读于安徽大学江淮学院计算机科学与技术专业。目前就职于安徽信息工程学院，担任辅导员。</p>
-        <p>研究方向集中在教育数据挖掘与推荐系统：以学习者行为序列为基础，建模兴趣漂移与知识状态变化，为自适应学习平台提供更贴合个体节奏的推荐结果。同时关注虚假新闻检测中的内容语义与传播结构建模。</p>
-        <p>做学生工作的这两年，我习惯把同一套数据思维带到班级里——奖助认定、入党流程、毕业班的升学与就业引导，尽量让每一项事务都有据可依、有迹可循，也让每一次谈话都能落在具体的困难上。</p>
-      </div>
-      <div class="facts reveal reveal-d1">
-        <div class="fact">
-          <div class="fact-k">Now</div>
-          <div class="fact-v">安徽信息工程学院 · 辅导员<small>班级管理 / 思政教育 / 学生事务</small></div>
-        </div>
-        <div class="fact">
-          <div class="fact-k">M.A.</div>
-          <div class="fact-v">江苏海洋大学 · 模式识别与智能系统<small>研究方向：教育推荐、行为建模</small></div>
-        </div>
-        <div class="fact">
-          <div class="fact-k">B.E.</div>
-          <div class="fact-v">安徽大学江淮学院 · 计算机科学与技术<small>曾任学习委员、组织部副部长</small></div>
-        </div>
-        <div class="fact">
-          <div class="fact-k">Focus</div>
-          <div class="fact-v">推荐算法 × 思政教育<small>用技术理解学习，用陪伴理解成长</small></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 研究方向 ===== -->
-<section id="research">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">03 — Research</div>
-      <h2>研究方向</h2>
-      <p>三条相对独立、但在方法上彼此借力的线：序列建模、内容可信度判断，以及教育场景中的落地验证。</p>
-    </div>
-    <div class="research-grid">
-      <article class="card reveal">
-        <div class="card-num">01</div>
-        <h3>教育推荐系统</h3>
-        <p>围绕在线学习平台的学习者建模与序列推荐：识别兴趣漂移、追踪知识状态迁移，缓解新用户与冷门资源的冷启动问题，并强调推荐结果的可解释性。</p>
-        <div class="tags">
-          <span class="tag">序列推荐</span>
-          <span class="tag">行为漂移</span>
-          <span class="tag">可解释性</span>
-        </div>
-      </article>
-      <article class="card reveal reveal-d1">
-        <div class="card-num">02</div>
-        <h3>虚假新闻检测</h3>
-        <p>从内容语义与传播结构两侧刻画虚假信息：多模态特征融合、早期检测、以及可作为判断依据的证据抽取，目标是把「判定」变成「可追溯的判定」。</p>
-        <div class="tags">
-          <span class="tag">多模态</span>
-          <span class="tag">传播图</span>
-          <span class="tag">早期检测</span>
-        </div>
-      </article>
-      <article class="card reveal reveal-d2">
-        <div class="card-num">03</div>
-        <h3>思政教育的数字化路径</h3>
-        <p>把教育数据作为支撑，构建高校辅导员思政教育工作模式：需求识别、过程留痕、效果评估三个环节形成闭环，让思政工作从经验判断走向可验证。</p>
-        <div class="tags">
-          <span class="tag">教育数据</span>
-          <span class="tag">工作模式</span>
-          <span class="tag">效果评估</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 科研成果 ===== -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">04 — Output</div>
-      <h2>科研成果</h2>
-      <p>围绕推荐模型与学习行为数据集的研究与工程产出。</p>
-    </div>
-
-    <div class="stats reveal">
-      <div class="stat">
-        <div class="stat-n">2<i> 篇</i></div>
-        <div class="stat-l">SCI 学术论文</div>
-        <div class="stat-note">教育推荐 / 学习行为建模</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">4<i> 项</i></div>
-        <div class="stat-l">软件著作权</div>
-        <div class="stat-note">算法与系统实现</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">2<i> 项</i></div>
-        <div class="stat-l">发明专利</div>
-        <div class="stat-note">实质审查阶段</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">3<i> 个</i></div>
-        <div class="stat-l">研究方向</div>
-        <div class="stat-note">推荐 / 检测 / 思政数字化</div>
-      </div>
-    </div>
-
-    <div class="highlight reveal reveal-d1">
-      <div class="highlight-left">
-        <div class="label">Representative Work</div>
-        <h3>DynLearn-Adapt</h3>
-        <p class="venue">IEEE Transactions on Consumer Electronics · SCI</p>
-        <p>面向学习者行为漂移的自适应推荐模型。以行为序列中的兴趣迁移为切入点，构建可随学习阶段调整的表示，并在自建的 OULA 学习者行为数据集上验证。</p>
-      </div>
-      <div class="highlight-right">
-        <div class="row"><span class="row-k">发表期刊</span><span class="row-v">IEEE Transactions on Consumer Electronics</span></div>
-        <div class="row"><span class="row-k">数据贡献</span><span class="row-v">OULA 学习者行为数据集</span></div>
-        <div class="row"><span class="row-k">评价指标</span><span class="row-v">HR@K · NDCG@K · MRR</span></div>
-        <div class="row"><span class="row-k">实验设置</span><span class="row-v">多基线对比，含显著性检验（p &lt; 0.05）</span></div>
-        <div class="row"><span class="row-k">项目经历</span><span class="row-v">参与国家自然科学基金项目申报书撰写</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 学生工作 ===== -->
-<section id="work">
-  <div class="wrap">
-    <div class="work-grid">
-      <div class="work-sticky reveal">
-        <div class="sec-eyebrow">05 — Practice</div>
-        <h2>学生工作</h2>
-        <p style="color:var(--ink-2);font-size:.94rem;margin:0">从学习委员、组织部副部长，到今天的辅导员——同一件事做了很多年：把抽象的「关心」翻译成学生能接住的具体动作。</p>
-        <div class="chips" style="margin:24px 0 0">
-          <span class="chip">班团建设</span>
-          <span class="chip">奖助认定</span>
-          <span class="chip">入党指导</span>
-          <span class="chip">升学就业</span>
-          <span class="chip">心理关注</span>
-        </div>
-      </div>
-      <div class="work-list reveal reveal-d1">
-        <div class="work-item">
-          <h3>班团建设与日常管理</h3>
-          <p>班级制度、宿舍走访、安全教育与心理关注，保持稳定的沟通渠道，让问题在变成事故之前被看见。</p>
-        </div>
-        <div class="work-item">
-          <h3>奖助认定与困难帮扶</h3>
-          <p>按时间节点归集材料、交叉校验数据，确保认定过程中的公平与可追溯；对家庭经济困难学生做长期跟踪。</p>
-        </div>
-        <div class="work-item">
-          <h3>入党全流程指导</h3>
-          <p>从递交申请书到转正，梳理每个环节的材料规范与时间节点，减少学生因流程不清而走的弯路。</p>
-        </div>
-        <div class="work-item">
-          <h3>毕业班升学与就业引导</h3>
-          <p>面向考研与求职两条路径分别做信息整理与经验对接，把「不知道下一步做什么」拆成可以执行的清单。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 作品 ===== -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">06 — Works</div>
-      <h2>作品与开源</h2>
-      <p>代码、实验与页面，尽量保持可复现。</p>
-    </div>
-    <div class="proj-grid">
-      <a class="proj reveal" href="https://github.com/wudgsfd/wushuai.github.io" target="_blank" rel="noopener">
-        <div class="proj-top">
-          <span class="proj-type">Jekyll</span>
-          <span class="proj-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </div>
-        <h3>个人主页（本站）</h3>
-        <p>手写布局与样式，无框架、无构建依赖。公开在 GitHub 上，文章以 Markdown 存放，推送即发布。</p>
-        <div class="proj-meta">github.com/wudgsfd</div>
-      </a>
-
-      <a class="proj reveal reveal-d1" href="https://github.com/wudgsfd" target="_blank" rel="noopener">
-        <div class="proj-top">
-          <span class="proj-type">Code</span>
-          <span class="proj-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </div>
-        <h3>GitHub 主页</h3>
-        <p>实验代码、模型实现与数据处理脚本的存放处，欢迎就推荐模型与数据集的细节交流或提 issue。</p>
-        <div class="proj-meta">github.com/wudgsfd</div>
-      </a>
-
-      <div class="proj muted reveal reveal-d2">
-        <div class="proj-top"><span class="proj-type">WIP</span></div>
-        <h3>更多作品整理中</h3>
-        <p>课程与项目代码、论文实验记录正在整理归档，后续会陆续补充到这里。</p>
-        <div class="proj-meta">Coming soon</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 联系 ===== -->
-<section id="contact">
-  <div class="wrap">
-    <div class="contact reveal">
-      <div>
-        <div class="sec-eyebrow">07 — Contact</div>
-        <h2>聊一聊</h2>
-        <p class="contact-lead">学术合作、学生工作交流或只是打个招呼，都欢迎来信。邮件通常会在两个工作日内回复。</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="mailto:your-email@example.com">
-            发送邮件
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="https://github.com/wudgsfd" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-      <div class="contact-list">
-        <div class="c-item">
-          <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
-          <div class="c-body">
-            <div class="c-k">Email</div>
-            <div class="c-v" id="emailText">your-email@example.com</div>
-          </div>
-          <button class="copy-btn" id="copyBtn" type="button">复制</button>
-        </div>
-        <div class="c-item">
-          <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 0 0-2.8 17.5c.4.1.6-.2.6-.5v-1.8c-2.3.5-2.8-1.1-2.8-1.1-.4-1-.9-1.2-.9-1.2-.8-.5 0-.5 0-.5.8 0 1.2.9 1.2.9.7 1.2 1.9.9 2.4.7.1-.5.3-.9.6-1.1-1.9-.2-3.9-.9-3.9-4.2 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 0 1 4.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.3-2 4-3.9 4.2.3.3.6.9.6 1.7v2.5c0 .3.2.6.6.5A9 9 0 0 0 12 3z"/></svg></div>
-          <div class="c-body">
-            <div class="c-k">GitHub</div>
-            <div class="c-v">github.com/wudgsfd</div>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
-          <div class="c-body">
-            <div class="c-k">Location</div>
-            <div class="c-v">安徽 · 芜湖（湾沚区）</div>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
-          <div class="c-body">
-            <div class="c-k">Affiliation</div>
-            <div class="c-v">安徽信息工程学院</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>

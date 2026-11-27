@@ -1,34 +1,30 @@
 ---
 layout: default
-title: 文章
-description: 吴帅的全部文章，按年份归档。
+title: 文章归档
+description: 吴帅的全部文章，按年份排列。
 ---
-<section class="archive">
-  <div class="wrap">
+<div class="wrap">
+  <div class="archive">
+
     <div class="archive-head">
-      <div class="sec-eyebrow">Archive</div>
-      <h2>全部文章</h2>
-      <p style="color:var(--ink-2);font-size:.96rem;margin:0">共 {{ site.posts.size }} 篇。按日期倒序，也可以用 <a href="{{ '/feed.xml' | relative_url }}" style="color:var(--accent)">RSS</a> 订阅。</p>
+      <h1>文章归档</h1>
+      <p>共 {{ site.posts.size }} 篇</p>
     </div>
 
-    {% assign currentYear = '' %}
-    {% for post in site.posts %}
-      {% assign y = post.date | date: '%Y' %}
-      {% if y != currentYear %}
-        {% assign currentYear = y %}
-        <h3 class="archive-year" id="y{{ y }}">{{ y }}</h3>
-      {% endif %}
-      <a class="archive-item" href="{{ post.url | relative_url }}">
-        <span class="a-date">{{ post.date | date: '%m-%d' }}</span>
-        <span class="a-title">{{ post.title }}</span>
-        <span class="a-tags">
-          {% for tag in post.tags limit: 2 %}<span class="tag">{{ tag }}</span>{% endfor %}
-        </span>
-      </a>
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for group in posts_by_year %}
+    <div class="year">{{ group.name }}</div>
+    {% for post in group.items %}
+    <div class="arow">
+      <span class="d">{{ post.date | date: '%m.%d' }}</span>
+      <span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+    </div>
+    {% endfor %}
     {% endfor %}
 
     {% if site.posts.size == 0 %}
-    <p class="empty-note">还没有文章。在 <code>_posts/</code> 里新建一个 Markdown 文件，推送后就会出现在这里。</p>
+    <p style="margin-top:20px;font-size:14px">还没有文章。在 <code>_posts/</code> 里新建一个 Markdown 文件即可。</p>
     {% endif %}
+
   </div>
-</section>
+</div>
