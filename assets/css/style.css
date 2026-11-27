@@ -70,11 +70,11 @@ body.has-bg::after{
 body.has-bg .col{
   background:linear-gradient(90deg,
     rgba(255,255,255,0) 0,
-    rgba(255,255,255,.78) 26px,
-    rgba(255,255,255,.78) calc(100% - 26px),
+    rgba(255,255,255,.90) 26px,
+    rgba(255,255,255,.90) calc(100% - 26px),
     rgba(255,255,255,0) 100%);
-  -webkit-backdrop-filter:blur(10px) saturate(1.02);
-  backdrop-filter:blur(10px) saturate(1.02);
+  -webkit-backdrop-filter:blur(12px) brightness(1.05) saturate(1.02);
+  backdrop-filter:blur(12px) brightness(1.05) saturate(1.02);
   border-radius:10px;
   padding:12px 28px 32px;
   margin:-12px -28px 0;
