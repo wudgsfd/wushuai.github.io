@@ -1,0 +1,39 @@
+title: 吴帅
+description: 安徽信息工程学院辅导员，模式识别与智能系统硕士。研究方向：教育推荐系统、学习者行为建模与虚假新闻检测。
+author: 吴帅
+lang: zh-CN
+timezone: Asia/Shanghai
+
+url: "https://wudgsfd.github.io"
+baseurl: "/wushuai.github.io"
+
+permalink: /posts/:year/:month/:day/:slug/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
