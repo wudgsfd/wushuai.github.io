@@ -1,207 +1,259 @@
 /* ============================================================
    吴帅 · 个人主页 / 博客
-   版式参考 Google Scholar 作者页：白底、单栏、无卡片、无阴影
+   左栏简历式侧栏 + 右栏正文，学术页面排版
    ============================================================ */
 
 :root{
-  --ink:#111111;
-  --ink-2:#333333;
-  --ink-3:#6b7280;
-  --ink-4:#9aa0a6;
-  --line:#e3e3e3;
-  --line-soft:#f1f1f1;
-  --link:#1a0dab;
-  --maxw:780px;
+  --ink:#15171c;
+  --ink-2:#3a4048;
+  --ink-3:#6e747d;
+  --ink-4:#9ea3ab;
+  --line:#e6e3dd;
+  --line-soft:#f0eeea;
+  --accent:#143a66;
+  --link:#133a63;
+  --maxw:1000px;
 }
 
 *,*::before,*::after{box-sizing:border-box}
 
 html{
   -webkit-text-size-adjust:100%;
-  scroll-padding-top:24px;
+  scroll-padding-top:72px;
 }
 
 body{
   margin:0;
   background:#fff;
-  color:var(--ink);
+  color:var(--ink-2);
   font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  font-size:15.5px;
-  line-height:1.8;
+  font-size:15.8px;
+  line-height:1.85;
   -webkit-font-smoothing:antialiased;
 }
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-a{color:var(--link);text-decoration:none}
-a:hover{text-decoration:underline}
+a{color:var(--link);text-decoration:none;transition:color .15s ease}
+a:hover{text-decoration:underline;text-underline-offset:2px}
 img{max-width:100%;display:block}
-button{font-family:inherit}
 
-:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* ---------- 顶部细导航 ---------- */
+/* ---------- 顶栏 ---------- */
 .topnav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
-  font-size:13px;
-  color:var(--ink-3);
-  background:#fff;
+  font-size:12.5px;
 }
 .topnav .wrap{
-  display:flex;flex-wrap:wrap;align-items:baseline;
-  gap:18px;
-  padding-top:12px;padding-bottom:11px;
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:22px;
+  min-height:48px;
+  padding-top:8px;padding-bottom:8px;
 }
 .topnav .brand{
-  font-size:13px;font-weight:600;color:var(--ink);
-  letter-spacing:.02em;
+  font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ink);
+  margin-right:2px;
 }
 .topnav a{color:var(--ink-3)}
-.topnav a:hover{color:var(--link);text-decoration:none}
-.topnav .brand:hover{color:var(--link)}
+.topnav a:hover{color:var(--accent);text-decoration:none}
+.topnav .brand:hover{color:var(--accent)}
 
-/* ---------- 页头 ---------- */
-.site-head{padding-top:52px;padding-bottom:6px}
-.site-head h1{
-  font-size:30px;
+/* ---------- 首页两栏 ---------- */
+.home{
+  display:grid;
+  grid-template-columns:248px minmax(0,1fr);
+  gap:60px;
+  align-items:start;
+  padding:54px 0 8px;
+}
+
+/* 左栏 */
+.rail{position:sticky;top:92px}
+.portrait{
+  width:100%;
+  border-radius:8px;
+  border:1px solid var(--line-soft);
+}
+.rail h1{
+  font-family:Georgia,"Times New Roman","Songti SC","STSong",serif;
+  font-size:33px;
   font-weight:600;
-  line-height:1.35;
-  letter-spacing:.01em;
-  margin:0 0 6px;
+  letter-spacing:.05em;
+  line-height:1.3;
   color:var(--ink);
+  margin:0 0 6px;
 }
-.site-head .affil{
-  margin:0;
-  font-size:15px;
-  color:var(--ink-2);
-  line-height:1.7;
+.name-en{
+  font-size:10.5px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--ink-4);
+  margin:18px 0 5px;
 }
-.site-head .meta-line{
-  margin:2px 0 0;
-  font-size:13.5px;
-  color:var(--ink-3);
-  line-height:1.7;
+.affil{font-size:14.5px;color:var(--ink-2);margin:0;line-height:1.7}
+.rail-meta{font-size:12.5px;color:var(--ink-3);line-height:1.9;margin:5px 0 0}
+
+.links{
+  margin:18px 0 0;
+  padding-top:14px;
+  border-top:1px solid var(--line-soft);
+  display:grid;
+  gap:5px;
+  font-size:12.5px;
 }
-.site-head .meta-line a{color:var(--link)}
+.links div{display:flex;gap:9px;align-items:baseline}
+.links .lk{
+  flex:0 0 34px;
+  color:var(--ink-4);
+  font-size:11px;
+  letter-spacing:.08em;
+}
+.links a,.links span.v{color:var(--ink-3);word-break:break-all}
+.links a:hover{color:var(--accent)}
 
 /* ---------- 章节 ---------- */
 .sec-title{
-  font-size:14px;
+  position:relative;
+  font-size:15px;
   font-weight:600;
-  letter-spacing:.05em;
+  letter-spacing:.03em;
   color:var(--ink);
-  margin:44px 0 18px;
-  padding-bottom:8px;
+  margin:42px 0 16px;
+  padding:0 0 9px 12px;
   border-bottom:1px solid var(--line);
 }
-.sec-title:first-of-type{margin-top:34px}
+.sec-title::before{
+  content:"";
+  position:absolute;left:0;top:3px;
+  width:3px;height:13px;
+  background:var(--accent);
+}
+.col > section:first-of-type .sec-title{margin-top:24px}
 
-p{margin:0 0 12px;color:var(--ink-2)}
+p{margin:0 0 13px;color:var(--ink-2)}
 
-/* 键值行：左标签，右内容 */
+/* 键值行 */
 .kv{
   display:grid;
-  grid-template-columns:104px 1fr;
+  grid-template-columns:106px 1fr;
   gap:14px;
   padding:3px 0;
   font-size:14.5px;
-  line-height:1.75;
+  line-height:1.8;
 }
-.kv .k{color:var(--ink-3)}
-.kv-date{grid-template-columns:168px 1fr}
-.kv-date .k{font-variant-numeric:tabular-nums;font-size:13.5px}
+.kv .k{color:var(--ink-3);font-size:13.5px}
 .kv .v{color:var(--ink-2)}
+.kv-date{grid-template-columns:170px 1fr}
+.kv-date .k{font-variant-numeric:tabular-nums;font-size:13px}
 
-/* ---------- 论文 / 成果列表 ---------- */
+/* 论文 / 项目列表 */
 .pubs{list-style:none;margin:0;padding:0}
 .pub{
   display:grid;
-  grid-template-columns:24px 1fr;
+  grid-template-columns:26px 1fr;
   gap:6px;
-  margin-bottom:16px;
+  margin-bottom:20px;
 }
-.pub .num{color:var(--ink-4);font-size:13.5px;font-variant-numeric:tabular-nums;padding-top:1px}
-.pub .t{font-size:15px;line-height:1.65;color:var(--ink);font-weight:500}
-.pub .m{font-size:13px;color:var(--ink-3);line-height:1.7;margin:3px 0 0}
+.pub .num{color:var(--ink-4);font-size:13px;font-variant-numeric:tabular-nums;padding-top:3px}
+.pub .t{font-size:16px;line-height:1.65;color:var(--ink);font-weight:600}
+.pub .m{font-size:12.8px;color:var(--ink-3);line-height:1.8;margin:4px 0 0}
 .pub .m em{font-style:normal;color:var(--ink-2)}
 
-/* 紧凑条目（专利、软著等） */
+/* 紧凑条目 */
 .lite{list-style:none;margin:4px 0 0;padding:0}
 .lite li{
   font-size:13.5px;
-  line-height:1.85;
+  line-height:1.9;
   color:var(--ink-3);
   padding-left:1em;
   text-indent:-1em;
 }
 
-/* ---------- 文章列表 ---------- */
+/* 文章列表 */
 .wlist{margin:0;padding:0;list-style:none}
 .witem{
   display:grid;
-  grid-template-columns:92px 1fr;
-  gap:12px;
-  padding:8px 0;
+  grid-template-columns:96px 1fr;
+  gap:14px;
+  padding:9px 0;
   border-bottom:1px solid var(--line-soft);
   font-size:14.5px;
-  line-height:1.7;
+  line-height:1.75;
 }
-.witem .d{color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums;padding-top:2px}
-.witem a{color:var(--link)}
+.witem .d{color:var(--ink-3);font-size:12.8px;font-variant-numeric:tabular-nums;padding-top:2px}
+.witem a{color:var(--ink);font-weight:500}
+.witem a:hover{color:var(--accent)}
 
-/* ---------- 正文（文章页） ---------- */
-.article{padding-top:8px;padding-bottom:56px}
+/* ---------- 文章页 ---------- */
+.article{
+  max-width:720px;
+  margin:0 auto;
+  padding:44px 0 60px;
+}
 .article-meta{
-  font-size:13px;color:var(--ink-3);
-  margin:34px 0 8px;
+  font-size:12.8px;color:var(--ink-3);
+  margin:0 0 10px;
   font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
 }
 .article h1{
-  font-size:24px;
+  font-size:26px;
   font-weight:600;
   line-height:1.5;
   letter-spacing:.01em;
-  margin:0 0 10px;
+  margin:0 0 12px;
   color:var(--ink);
 }
 .article-lead{
   font-size:14.5px;
   color:var(--ink-3);
-  line-height:1.75;
+  line-height:1.8;
   margin:0;
 }
-.article-tags{margin-top:10px;font-size:13px;color:var(--ink-4)}
+.article-tags{margin-top:12px;font-size:12.5px;color:var(--ink-4);letter-spacing:.02em}
 .article-tags span + span::before{content:" · ";color:var(--line)}
 
 .prose{
-  margin-top:30px;
-  padding-top:26px;
+  margin-top:32px;
+  padding-top:28px;
   border-top:1px solid var(--line);
-  font-size:15.5px;
-  line-height:1.88;
+  font-size:15.8px;
+  line-height:1.95;
   color:var(--ink-2);
 }
-.prose > p{margin:0 0 16px}
+.prose > p{margin:0 0 17px}
 .prose h2{
+  position:relative;
   font-size:17px;
   font-weight:600;
   color:var(--ink);
-  margin:34px 0 10px;
+  margin:36px 0 10px;
+  padding-left:12px;
   line-height:1.6;
+}
+.prose h2::before{
+  content:"";position:absolute;left:0;top:4px;
+  width:3px;height:13px;background:var(--accent);
 }
 .prose h3{
   font-size:15.5px;
   font-weight:600;
   color:var(--ink);
-  margin:24px 0 8px;
+  margin:26px 0 8px;
 }
-.prose a{color:var(--link)}
-.prose ul,.prose ol{margin:0 0 16px;padding-left:1.5em}
+.prose a{color:var(--link);border-bottom:1px solid rgba(19,58,99,.25)}
+.prose a:hover{text-decoration:none;border-bottom-color:var(--accent)}
+.prose ul,.prose ol{margin:0 0 17px;padding-left:1.5em}
 .prose li{margin:4px 0}
 .prose blockquote{
-  margin:20px 0;
-  padding:2px 0 2px 16px;
-  border-left:3px solid var(--line);
+  margin:22px 0;
+  padding:4px 0 4px 16px;
+  border-left:3px solid var(--accent);
   color:var(--ink-3);
   font-size:14.5px;
 }
@@ -209,97 +261,121 @@ p{margin:0 0 12px;color:var(--ink-2)}
 .prose code{
   font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   font-size:.88em;
-  background:#f4f4f4;
+  background:#f5f4f1;
   padding:1px 5px;
   border-radius:3px;
   color:var(--ink);
 }
 .prose pre{
-  background:#f7f7f7;
+  background:#f8f7f4;
   border:1px solid var(--line);
-  border-radius:3px;
-  padding:14px 16px;
+  border-radius:4px;
+  padding:15px 17px;
   overflow-x:auto;
-  margin:20px 0;
+  margin:22px 0;
   font-size:13px;
-  line-height:1.75;
+  line-height:1.8;
 }
 .prose pre code{background:none;padding:0;border:none;font-size:inherit}
-.prose img{margin:20px auto;border:1px solid var(--line-soft)}
-.prose figure{margin:20px 0}
-.prose figcaption{text-align:center;font-size:12.5px;color:var(--ink-3);margin-top:6px}
-.prose table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;line-height:1.7}
-.prose th,.prose td{border:1px solid var(--line);padding:7px 10px;text-align:left}
-.prose th{background:#fafafa;font-weight:600;color:var(--ink)}
-.prose hr{border:none;border-top:1px solid var(--line);margin:34px 0}
+.prose img{margin:22px auto;border-radius:4px;border:1px solid var(--line-soft)}
+.prose figure{margin:22px 0}
+.prose figcaption{text-align:center;font-size:12.5px;color:var(--ink-3);margin-top:8px}
+.prose table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px;line-height:1.75}
+.prose th,.prose td{border:1px solid var(--line);padding:8px 11px;text-align:left}
+.prose th{background:#faf9f7;font-weight:600;color:var(--ink)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:36px 0}
 .prose strong{color:var(--ink);font-weight:600}
 
 .article-nav{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:24px;
-  margin-top:48px;
-  padding-top:20px;
+  gap:26px;
+  margin-top:52px;
+  padding-top:22px;
   border-top:1px solid var(--line);
   font-size:14px;
 }
-.article-nav .k{display:block;font-size:12.5px;color:var(--ink-4);margin-bottom:2px}
+.article-nav .k{display:block;font-size:11.5px;letter-spacing:.08em;color:var(--ink-4);margin-bottom:3px}
 .article-nav .next{text-align:right}
 .article-nav .spacer{visibility:hidden}
 
 /* ---------- 归档 ---------- */
-.archive{padding-top:8px;padding-bottom:56px}
-.archive-head{padding-top:44px}
-.archive-head h1{font-size:26px;font-weight:600;line-height:1.4;margin:0 0 6px}
-.archive-head p{font-size:13.5px;color:var(--ink-3);margin:0}
+.archive{max-width:720px;margin:0 auto;padding:44px 0 60px}
+.archive-head h1{font-size:26px;font-weight:600;line-height:1.45;margin:0 0 6px;color:var(--ink)}
+.archive-head p{font-size:13px;color:var(--ink-3);margin:0}
 .year{
-  font-size:13px;font-weight:600;color:var(--ink-3);
-  letter-spacing:.04em;
-  margin:32px 0 6px;
+  font-size:12px;font-weight:600;color:var(--ink-4);
+  letter-spacing:.12em;
+  margin:34px 0 6px;
 }
 .arow{
   display:grid;
-  grid-template-columns:76px 1fr;
-  gap:12px;
-  padding:8px 0;
+  grid-template-columns:78px 1fr;
+  gap:14px;
+  padding:9px 0;
   border-bottom:1px solid var(--line-soft);
   font-size:14.5px;
-  line-height:1.7;
+  line-height:1.75;
 }
-.arow .d{color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums;padding-top:2px}
-.arow a{color:var(--link)}
+.arow .d{color:var(--ink-3);font-size:12.8px;font-variant-numeric:tabular-nums;padding-top:2px}
+.arow a{color:var(--ink)}
+.arow a:hover{color:var(--accent)}
 
 /* ---------- 页脚 ---------- */
 footer{
   border-top:1px solid var(--line);
-  margin-top:52px;
-  padding:16px 0 44px;
+  margin-top:56px;
+  padding:18px 0 46px;
 }
 footer .wrap{
   display:flex;flex-wrap:wrap;gap:16px;
   justify-content:space-between;
-  font-size:12.5px;
+  font-size:12px;
   color:var(--ink-4);
+  letter-spacing:.02em;
 }
 footer a{color:var(--ink-4)}
-footer a:hover{color:var(--link)}
+footer a:hover{color:var(--accent)}
 
 /* ---------- 响应式 ---------- */
-@media (max-width:640px){
-  .wrap{padding:0 18px}
-  .site-head{padding-top:36px}
-  .site-head h1{font-size:25px}
-  .kv{grid-template-columns:1fr;gap:0;padding:5px 0}
-  .kv .k{font-size:12.5px;letter-spacing:.03em}
+@media (max-width:900px){
+  .home{grid-template-columns:1fr;gap:0;padding-top:34px}
+  .rail{
+    position:static;
+    display:grid;
+    grid-template-columns:112px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+    padding-bottom:6px;
+  }
+  .portrait{width:112px}
+  .name-en{margin-top:0}
+  .rail h1{font-size:28px}
+  .links{grid-column:1 / -1;margin-top:16px}
+  .col > section:first-of-type .sec-title{margin-top:30px}
+}
+
+@media (max-width:600px){
+  .wrap{padding:0 20px}
+  .topnav .wrap{gap:16px}
+  .rail{grid-template-columns:88px minmax(0,1fr);gap:16px}
+  .portrait{width:88px}
+  .rail h1{font-size:24px}
+  .kv,.kv-date{grid-template-columns:1fr;gap:0;padding:5px 0}
+  .kv .k{font-size:12px;letter-spacing:.04em}
+  .kv-date .k{font-size:12px}
   .witem,.arow{grid-template-columns:1fr;gap:1px}
   .witem .d,.arow .d{padding-top:0}
   .article h1{font-size:21px}
-  .article-nav{grid-template-columns:1fr;gap:14px}
+  .article-nav{grid-template-columns:1fr;gap:16px}
   .article-nav .next{text-align:left}
 }
 
 @media print{
-  .topnav,footer,.article-nav{display:none}
+  .topnav,footer,.article-nav,.links{display:none}
   body{font-size:11pt}
   .wrap{max-width:none;padding:0}
+  .home{display:block;padding-top:0}
+  .rail{position:static;display:block}
+  .portrait{width:110px}
 }
