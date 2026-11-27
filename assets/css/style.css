@@ -4,15 +4,15 @@
    ============================================================ */
 
 :root{
-  --ink:#15171c;
-  --ink-2:#3a4048;
-  --ink-3:#6e747d;
-  --ink-4:#9ea3ab;
-  --line:#e6e3dd;
-  --line-soft:#efece5;
+  --ink:#12141a;
+  --ink-2:#282d35;
+  --ink-3:#515762;
+  --ink-4:#767c86;
+  --line:#dcd8d1;
+  --line-soft:#eae7e1;
   --accent:#143a66;
-  --accent-2:#9a6a3f;
-  --link:#133a63;
+  --accent-2:#8a5d34;
+  --link:#0e3560;
   --bg:#fbfaf7;
   --card:#ffffff;
   --maxw:1000px;
@@ -30,10 +30,11 @@ body{
   margin:0;
   background:transparent;
   color:var(--ink-2);
-  font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  font-size:16.2px;
-  line-height:1.9;
+  font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+  font-size:16.8px;
+  line-height:1.88;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -48,25 +49,30 @@ img{max-width:100%;display:block}
 body.has-bg::before{
   content:"";
   position:fixed;
-  top:-3%;left:-3%;
-  width:106%;height:106%;
+  top:-2%;left:-2%;
+  width:104%;height:104%;
   background:url("../media/bg-sketch.jpg") center/cover no-repeat;
-  filter:blur(7px) brightness(1.02) contrast(.96);
+  filter:blur(2.5px) brightness(1.14) contrast(.72);
   z-index:-2;
   pointer-events:none;
   opacity:0;
-  animation:bgIn 1.2s ease .2s forwards;
+  animation:bgIn 1s ease .15s forwards;
 }
-@keyframes bgIn{to{opacity:.92}}
+@keyframes bgIn{to{opacity:1}}
 body.has-bg::after{
   content:"";
   position:fixed;inset:0;
-  background:linear-gradient(180deg,rgba(251,250,247,.46) 0%,rgba(251,250,247,.60) 100%);
+  background:linear-gradient(180deg,rgba(251,250,247,.18) 0%,rgba(251,250,247,.30) 100%);
   z-index:-1;
   pointer-events:none;
 }
+/* 背景之上给右栏文字加一层极淡的纸色光晕，压住铅笔线条 */
+body.has-bg .col{text-shadow:0 0 1px rgba(255,255,255,.9),0 0 7px rgba(253,252,250,.95)}
+body.has-bg .col a,
+body.has-bg .col .pub .t,
+body.has-bg .col .sec-title{text-shadow:0 0 2px rgba(255,255,255,.95),0 0 9px rgba(253,252,250,.9)}
 @media (prefers-reduced-motion:reduce){
-  body.has-bg::before{animation:none;opacity:.92}
+  body.has-bg::before{animation:none;opacity:1}
 }
 
 /* ---------- 顶栏 ---------- */
@@ -155,11 +161,11 @@ body.has-bg::after{
 /* ---------- 章节 ---------- */
 .sec-title{
   position:relative;
-  font-size:15px;
-  font-weight:600;
-  letter-spacing:.03em;
+  font-size:15.5px;
+  font-weight:700;
+  letter-spacing:.04em;
   color:var(--ink);
-  margin:42px 0 16px;
+  margin:44px 0 16px;
   padding:0 0 9px 12px;
   border-bottom:1px solid var(--line);
 }
@@ -179,7 +185,7 @@ body.has-bg::after{
 }
 .col > section:first-of-type .sec-title{margin-top:24px}
 
-p{margin:0 0 13px;color:var(--ink-2)}
+p{margin:0 0 15px;color:var(--ink-2)}
 
 /* 键值行 */
 .kv{
@@ -187,13 +193,13 @@ p{margin:0 0 13px;color:var(--ink-2)}
   grid-template-columns:106px 1fr;
   gap:14px;
   padding:3px 0;
-  font-size:14.5px;
+  font-size:15px;
   line-height:1.8;
 }
-.kv .k{color:var(--ink-3);font-size:13.5px}
+.kv .k{color:var(--ink-3);font-size:14px}
 .kv .v{color:var(--ink-2)}
 .kv-date{grid-template-columns:170px 1fr}
-.kv-date .k{font-variant-numeric:tabular-nums;font-size:13px}
+.kv-date .k{font-variant-numeric:tabular-nums;font-size:13.2px}
 
 /* 论文 / 项目列表 */
 .pubs{list-style:none;margin:0;padding:0}
@@ -205,13 +211,13 @@ p{margin:0 0 13px;color:var(--ink-2)}
 }
 .pub .num{color:var(--accent-2);font-size:13px;font-variant-numeric:tabular-nums;padding-top:3px}
 .pub .t{font-size:16.4px;line-height:1.65;color:var(--ink);font-weight:600}
-.pub .m{font-size:13px;color:var(--ink-3);line-height:1.8;margin:5px 0 0}
+.pub .m{font-size:13.5px;color:var(--ink-3);line-height:1.8;margin:5px 0 0}
 .pub .m em{font-style:normal;color:var(--ink-2)}
 
 /* 紧凑条目 */
 .lite{list-style:none;margin:4px 0 0;padding:0}
 .lite li{
-  font-size:13.5px;
+  font-size:14.2px;
   line-height:1.9;
   color:var(--ink-3);
   padding-left:1em;
@@ -226,10 +232,10 @@ p{margin:0 0 13px;color:var(--ink-2)}
   gap:14px;
   padding:9px 0;
   border-bottom:1px solid var(--line-soft);
-  font-size:14.5px;
+  font-size:15px;
   line-height:1.75;
 }
-.witem .d{color:var(--ink-3);font-size:12.8px;font-variant-numeric:tabular-nums;padding-top:2px}
+.witem .d{color:var(--ink-3);font-size:13.2px;font-variant-numeric:tabular-nums;padding-top:2px}
 .witem a{color:var(--ink);font-weight:500}
 .witem a:hover{color:var(--accent)}
 
