@@ -32,6 +32,7 @@ layout: default
       {{ content }}
     </div>
 
+    {% if page.previous or page.next %}
     <nav class="article-nav">
       {% if page.previous %}
       <a href="{{ page.previous.url | relative_url }}">
@@ -48,5 +49,6 @@ layout: default
       </a>
       {% endif %}
     </nav>
+    {% endif %}
   </article>
 </div>
