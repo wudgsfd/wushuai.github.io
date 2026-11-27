@@ -25,6 +25,7 @@ future: true
 
 exclude:
   - README.md
+  - 写作模板.md
   - Gemfile
   - Gemfile.lock
   - vendor
