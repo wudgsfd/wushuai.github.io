@@ -66,11 +66,16 @@ body.has-bg::after{
   z-index:-1;
   pointer-events:none;
 }
-/* 背景之上给右栏文字加一层极淡的纸色光晕，压住铅笔线条 */
-body.has-bg .col{text-shadow:0 0 1px rgba(255,255,255,.9),0 0 7px rgba(253,252,250,.95)}
-body.has-bg .col a,
-body.has-bg .col .pub .t,
-body.has-bg .col .sec-title{text-shadow:0 0 2px rgba(255,255,255,.95),0 0 9px rgba(253,252,250,.9)}
+/* 背景之上给正文区一层半透明纸衬底：页边仍露清晰线稿，文字落在干净底上 */
+body.has-bg .col{
+  background:rgba(252,251,248,.74);
+  -webkit-backdrop-filter:blur(9px) saturate(1.04);
+  backdrop-filter:blur(9px) saturate(1.04);
+  border-radius:12px;
+  padding:12px 28px 32px;
+  margin:-12px -28px 0;
+  box-shadow:0 1px 2px rgba(21,23,28,.03),0 16px 36px -26px rgba(21,23,28,.22);
+}
 @media (prefers-reduced-motion:reduce){
   body.has-bg::before{animation:none;opacity:1}
 }
@@ -410,6 +415,10 @@ footer a:hover{color:var(--accent)}
 /* ---------- 响应式 ---------- */
 @media (max-width:900px){
   .home{grid-template-columns:1fr;gap:0;padding-top:34px}
+  /* 窄屏不再用衬底，改为加深背景遮罩，保证小字号也能读 */
+  body.has-bg .col{padding:0;margin:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0;box-shadow:none}
+  body.has-bg::before{filter:blur(4px) brightness(1.14) contrast(.7)}
+  body.has-bg::after{background:linear-gradient(180deg,rgba(251,250,247,.72) 0%,rgba(251,250,247,.78) 100%)}
   .rail{
     position:static;
     display:grid;
