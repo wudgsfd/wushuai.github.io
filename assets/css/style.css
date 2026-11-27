@@ -9,9 +9,12 @@
   --ink-3:#6e747d;
   --ink-4:#9ea3ab;
   --line:#e6e3dd;
-  --line-soft:#f0eeea;
+  --line-soft:#efece5;
   --accent:#143a66;
+  --accent-2:#9a6a3f;
   --link:#133a63;
+  --bg:#fbfaf7;
+  --card:#ffffff;
   --maxw:1000px;
 }
 
@@ -24,11 +27,11 @@ html{
 
 body{
   margin:0;
-  background:#fff;
+  background:var(--bg);
   color:var(--ink-2);
   font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  font-size:15.8px;
-  line-height:1.85;
+  font-size:16.2px;
+  line-height:1.9;
   -webkit-font-smoothing:antialiased;
 }
 
@@ -66,27 +69,34 @@ img{max-width:100%;display:block}
 /* ---------- 首页两栏 ---------- */
 .home{
   display:grid;
-  grid-template-columns:248px minmax(0,1fr);
-  gap:60px;
+  grid-template-columns:266px minmax(0,1fr);
+  gap:52px;
   align-items:start;
-  padding:54px 0 8px;
+  padding:46px 0 8px;
 }
 
 /* 左栏 */
-.rail{position:sticky;top:92px}
-.portrait{
-  width:100%;
-  border-radius:8px;
+.rail{
+  position:sticky;top:92px;
+  background:var(--card);
   border:1px solid var(--line-soft);
+  border-radius:10px;
+  padding:22px;
+  box-shadow:0 1px 2px rgba(21,23,28,.03),0 10px 24px -14px rgba(21,23,28,.14);
+}
+.portrait{
+  width:96px;height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid var(--line);
 }
 .rail h1{
-  font-family:Georgia,"Times New Roman","Songti SC","STSong",serif;
-  font-size:33px;
-  font-weight:600;
-  letter-spacing:.05em;
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:.02em;
   line-height:1.3;
   color:var(--ink);
-  margin:0 0 6px;
+  margin:14px 0 4px;
 }
 .name-en{
   font-size:10.5px;
@@ -133,6 +143,14 @@ img{max-width:100%;display:block}
   width:3px;height:13px;
   background:var(--accent);
 }
+.sec-en{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-4);
+  margin-left:9px;
+}
 .col > section:first-of-type .sec-title{margin-top:24px}
 
 p{margin:0 0 13px;color:var(--ink-2)}
@@ -159,9 +177,9 @@ p{margin:0 0 13px;color:var(--ink-2)}
   gap:6px;
   margin-bottom:20px;
 }
-.pub .num{color:var(--ink-4);font-size:13px;font-variant-numeric:tabular-nums;padding-top:3px}
-.pub .t{font-size:16px;line-height:1.65;color:var(--ink);font-weight:600}
-.pub .m{font-size:12.8px;color:var(--ink-3);line-height:1.8;margin:4px 0 0}
+.pub .num{color:var(--accent-2);font-size:13px;font-variant-numeric:tabular-nums;padding-top:3px}
+.pub .t{font-size:16.4px;line-height:1.65;color:var(--ink);font-weight:600}
+.pub .m{font-size:13px;color:var(--ink-3);line-height:1.8;margin:5px 0 0}
 .pub .m em{font-style:normal;color:var(--ink-2)}
 
 /* 紧凑条目 */
@@ -191,7 +209,7 @@ p{margin:0 0 13px;color:var(--ink-2)}
 
 /* ---------- 文章页 ---------- */
 .article{
-  max-width:720px;
+  max-width:680px;
   margin:0 auto;
   padding:44px 0 60px;
 }
@@ -300,7 +318,7 @@ p{margin:0 0 13px;color:var(--ink-2)}
 .article-nav .spacer{visibility:hidden}
 
 /* ---------- 归档 ---------- */
-.archive{max-width:720px;margin:0 auto;padding:44px 0 60px}
+.archive{max-width:680px;margin:0 auto;padding:44px 0 60px}
 .archive-head h1{font-size:26px;font-weight:600;line-height:1.45;margin:0 0 6px;color:var(--ink)}
 .archive-head p{font-size:13px;color:var(--ink-3);margin:0}
 .year{
@@ -363,14 +381,14 @@ footer a:hover{color:var(--accent)}
   .rail{
     position:static;
     display:grid;
-    grid-template-columns:112px minmax(0,1fr);
-    gap:20px;
+    grid-template-columns:88px minmax(0,1fr);
+    gap:18px;
     align-items:start;
-    padding-bottom:6px;
+    padding:20px;
   }
-  .portrait{width:112px}
+  .portrait{width:88px;height:88px}
   .name-en{margin-top:0}
-  .rail h1{font-size:28px}
+  .rail h1{font-size:26px;margin-top:0}
   .links{grid-column:1 / -1;margin-top:16px}
   .col > section:first-of-type .sec-title{margin-top:30px}
 }
@@ -378,9 +396,9 @@ footer a:hover{color:var(--accent)}
 @media (max-width:600px){
   .wrap{padding:0 20px}
   .topnav .wrap{gap:16px}
-  .rail{grid-template-columns:88px minmax(0,1fr);gap:16px}
-  .portrait{width:88px}
-  .rail h1{font-size:24px}
+  .rail{grid-template-columns:76px minmax(0,1fr);gap:16px}
+  .portrait{width:76px;height:76px}
+  .rail h1{font-size:23px}
   .kv,.kv-date{grid-template-columns:1fr;gap:0;padding:5px 0}
   .kv .k{font-size:12px;letter-spacing:.04em}
   .kv-date .k{font-size:12px}
