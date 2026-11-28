@@ -1,6 +1,6 @@
 # 吴帅的个人博客
 
-基于 Astro + Vue 的静态个人博客，部署在 GitHub Pages。
+https://wudgsfd.github.io/wushuai.github.io/
 
 ## 本地开发
 
