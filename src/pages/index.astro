@@ -9,18 +9,15 @@ import { site } from "../site";
 import { sortByDateDesc, withBase } from "../utils";
 
 const posts = (await getCollection("blog")).sort(sortByDateDesc);
-const featured = posts.find((post) => post.data.featured) ?? posts[0];
-const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
+const recent = posts.slice(0, 3);
 ---
 
 <BaseLayout>
   <section class="home-hero">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow">Wu Shuai / Field Notes</p>
         <h1 class="hero-title">
-          写具体的，
-          <em>不写正确的。</em>
+          记录教学、推荐系统与项目实践
         </h1>
         <p class="hero-description">
           我是吴帅，在安徽信息工程学院工作。这里记录教学现场的判断、推荐系统的研究，以及一个个系统项目从想法到落地的过程。
@@ -72,8 +69,7 @@ const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
     <div class="container">
       <header class="section-heading">
         <div>
-          <p class="section-kicker">Latest Writing</p>
-          <h2>最近写下的事</h2>
+          <h2>最近文章</h2>
         </div>
         <a class="section-link" href={withBase("/writing/")}>
           全部 {posts.length} 篇
@@ -81,15 +77,12 @@ const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
         </a>
       </header>
 
-      <div class="writing-showcase">
-        {featured && <PostCard post={featured} index="01" featured />}
-        <div class="post-stack">
-          {
-            recent.map((post, index) => (
-              <PostCard post={post} index={String(index + 2).padStart(2, "0")} />
-            ))
-          }
-        </div>
+      <div class="post-list">
+        {
+          recent.map((post, index) => (
+            <PostCard post={post} index={String(index + 1).padStart(2, "0")} />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -98,8 +91,7 @@ const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
     <div class="container">
       <header class="section-heading">
         <div>
-          <p class="section-kicker">Selected Systems</p>
-          <h2>从算法到系统</h2>
+          <h2>项目</h2>
         </div>
         <a class="section-link" href={withBase("/projects/")}>
           项目索引
@@ -112,12 +104,17 @@ const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
 
   <section class="profile-strip">
     <div class="container profile-strip-grid">
-      <blockquote class="profile-quote">
-        “上课不是把话说完，是把人带到位。”
-        <span>
-          教学和做系统有相似的地方：都要先理解真实的人，再决定技术应该停在哪里。
-        </span>
-      </blockquote>
+      <div class="profile-copy">
+        <p class="section-kicker">关于我</p>
+        <h2>教学、研究和工程实践</h2>
+        <p>
+          硕士毕业于江苏海洋大学模式识别与智能系统专业，现就职于安徽信息工程学院。这里记录课堂上的判断、推荐系统的研究，以及项目从想法到落地的过程。
+        </p>
+        <a class="section-link" href={withBase("/about/")}>
+          查看完整履历
+          <ArrowRight size={15} aria-hidden="true" />
+        </a>
+      </div>
       <div class="stat-grid" aria-label="个人成果概览">
         <div class="stat"><strong>04</strong><span>论文成果</span></div>
         <div class="stat"><strong>05</strong><span>发明专利</span></div>
