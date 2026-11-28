@@ -1,31 +1,65 @@
-# 吴帅 · 个人主页与博客
+# 吴帅的个人博客
 
-GitHub Pages + Jekyll。写 Markdown，推送即发布。线上地址 `https://wudgsfd.github.io/wushuai.github.io/`。
+基于 Astro + Vue 的静态个人博客，部署在 GitHub Pages。
 
-| 文件 | 用途 |
-| --- | --- |
-| `index.html` | 首页个人介绍（姓名、简介、成果、联系方式） |
-| `_config.yml` | 站点配置：姓名、副标题、`baseurl`、时区 |
-| `_posts/` | 文章源文件，一篇一个 md |
-| `_layouts/default.html` | 顶栏、页脚、head 元信息 |
-| `_layouts/post.html` | 文章页 |
-| `archive/index.html` | 全部文章，按年归档 |
-| `assets/css/style.css` | 全部样式；配色看顶部 `:root` |
-| `assets/img/` | 文章配图，宽 1200px、单张 300KB 以内 |
-| `assets/files/` | pdf / zip 附件 |
-| `assets/avatar.jpg` | 分享卡缩略图 |
-| `写作模板.md` | 复制它写新文章（不参与构建） |
-| `404.html` | 404 页 |
+## 本地开发
 
-## 发一篇
+```bash
+npm install
+npm run dev
+```
 
-1. 复制 `写作模板.md` → `_posts/2026-12-01-short-name.md`
-2. 改头部六行，写正文
-3. `git add -A && git commit -m "新文章" && git push`
+构建与检查：
 
-文件名用英文或拼音（会进网址），标题照常写中文。
+```bash
+npm run build
+npm run preview
+```
 
-## 两个禁忌
+## 写文章
 
-- **不要加 `.nojekyll`**：会关闭 Jekyll 构建，文章列表全部失效
-- **图片不能写 `/assets/img/x.jpg`**：站点在子路径下，必须写 `{{ '/assets/img/x.jpg' | relative_url }}`
+文章放在 `src/content/blog/`，每篇文章一个 Markdown 文件。
+
+```md
+---
+title: 文章标题
+date: 2026-12-01 20:00:00 +0800
+description: 一句话摘要，用于首页和搜索分享。
+tags: [教学, 项目]
+featured: false
+---
+
+正文从这里开始。
+```
+
+文件名会成为文章 URL 的最后一段。文章继续使用原来的日期路径：
+
+```text
+/posts/2026/12/01/your-file-name/
+```
+
+## 页面结构
+
+- `/`：个人介绍、最近文章、精选项目
+- `/writing/`：文章检索与标签筛选
+- `/projects/`：系统项目索引
+- `/about/`：完整履历、论文、专利与荣誉
+- `/feed.xml`：RSS
+
+## 发布到 GitHub Pages
+
+仓库已经包含 `.github/workflows/deploy.yml`。在 GitHub 仓库设置中：
+
+1. 打开 `Settings → Pages`。
+2. 将 `Source` 设置为 `GitHub Actions`。
+3. 推送到 `main` 分支后，工作流会自动构建并发布。
+
+当前站点路径由 `astro.config.mjs` 中的 `base` 控制。如果以后把仓库改名为
+`wudgsfd.github.io` 或绑定独立域名，需要同步修改 `base`、`robots.txt`
+和分享图脚本中的地址。
+
+重新生成默认社交分享图：
+
+```bash
+python scripts/generate_og.py
+```

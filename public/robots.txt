@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wudgsfd.github.io/wushuai.github.io/sitemap-index.xml

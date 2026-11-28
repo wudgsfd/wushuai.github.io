@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import ArchiveExplorer from "../../components/ArchiveExplorer.vue";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  formatDate,
+  postPath,
+  readingTime,
+  sortByDateDesc,
+} from "../../utils";
+
+const posts = (await getCollection("blog")).sort(sortByDateDesc);
+const archivePosts = posts.map((post) => ({
+  title: post.data.title,
+  description: post.data.description,
+  date: formatDate(post.data.date, "short"),
+  dateIso: post.data.date.toISOString(),
+  readingTime: readingTime(post.body),
+  tags: post.data.tags,
+  url: postPath(post),
+}));
+---
+
+<BaseLayout
+  title="文章"
+  description="吴帅的文章归档：教学工作、职业选择、推荐系统与系统项目复盘。"
+>
+  <header class="page-intro container">
+    <div class="page-intro-inner">
+      <p class="eyebrow">Writing / Archive</p>
+      <h1>把过程写下来，<br /><em>让判断有迹可循。</em></h1>
+      <p class="page-intro-description">
+        教学现场、求职选择、推荐系统与项目复盘。不是标准答案，只是一些做过、想过、后来还愿意回头看的记录。
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <ArchiveExplorer posts={archivePosts} client:load />
+  </div>
+</BaseLayout>

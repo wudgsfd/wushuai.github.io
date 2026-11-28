@@ -1,0 +1,19 @@
+---
+import { ArrowLeft } from "lucide-astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils";
+---
+
+<BaseLayout title="页面未找到" noindex>
+  <section class="not-found">
+    <div class="container not-found-inner">
+      <p class="not-found-code">ERROR / 404</p>
+      <h1>这一页没有留下来。</h1>
+      <p>链接可能已经移动，或者这个地址从一开始就不存在。</p>
+      <a class="button button-primary" href={withBase("/")}>
+        <ArrowLeft size={16} aria-hidden="true" />
+        返回首页
+      </a>
+    </div>
+  </section>
+</BaseLayout>

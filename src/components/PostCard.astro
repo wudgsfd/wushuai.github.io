@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { ArrowUpRight } from "lucide-astro";
+import { formatDate, postPath, readingTime } from "../utils";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+  index: string;
+  featured?: boolean;
+};
+
+const { post, index, featured = false } = Astro.props;
+const href = postPath(post);
+const minutes = readingTime(post.body);
+---
+
+<article class:list={["post-card", { "is-featured": featured }]}>
+  <div class="post-index" aria-hidden="true">{index}</div>
+  <div class="post-card-body">
+    <div class="post-meta">
+      <time datetime={post.data.date.toISOString()}>
+        {formatDate(post.data.date)}
+      </time>
+      <span aria-hidden="true">/</span>
+      <span>{minutes} 分钟</span>
+    </div>
+    <h3><a href={href}>{post.data.title}</a></h3>
+    <p>{post.data.description}</p>
+    <div class="post-card-foot">
+      <ul class="tag-list" aria-label="文章标签">
+        {post.data.tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+      <a class="round-arrow" href={href} aria-label={`阅读：${post.data.title}`}>
+        <ArrowUpRight size={18} strokeWidth={1.8} aria-hidden="true" />
+      </a>
+    </div>
+  </div>
+</article>

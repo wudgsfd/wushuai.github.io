@@ -1,0 +1,105 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../site";
+import { withBase } from "../utils";
+import "../styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+  ogType?: "website" | "article";
+  image?: string;
+  publishedTime?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+};
+
+const {
+  title,
+  description = site.description,
+  ogType = "website",
+  image = "/assets/og-default.png",
+  publishedTime,
+  structuredData,
+  noindex = false,
+} = Astro.props;
+
+const pageTitle = title
+  ? `${title} | ${site.title}`
+  : `${site.title} | 教学、推荐系统与项目复盘`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = image.startsWith("http")
+  ? image
+  : new URL(withBase(image), Astro.site).toString();
+
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.title,
+  alternateName: site.englishName,
+  url: new URL(withBase("/"), Astro.site).toString(),
+  image: new URL(withBase("/assets/avatar.jpg"), Astro.site).toString(),
+  jobTitle: "教师",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: site.role,
+  },
+  homeLocation: {
+    "@type": "Place",
+    name: site.location,
+  },
+  knowsAbout: ["个性化推荐", "隐式反馈建模", "学习者建模", "知识图谱"],
+  sameAs: [site.github],
+};
+
+const jsonLd = structuredData ?? defaultStructuredData;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.title} />
+    <meta name="keywords" content={site.keywords.join(", ")} />
+    <meta name="theme-color" content="#f3f0e8" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href={withBase("/feed.xml")} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.title}的个人博客`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="site-shell">
+      <Header />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

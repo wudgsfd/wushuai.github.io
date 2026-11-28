@@ -1,0 +1,27 @@
+---
+import { ArrowUpRight } from "lucide-astro";
+import type { Project } from "../data/projects";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class:list={["project-row", `accent-${project.accent}`]}>
+  <div class="project-number" aria-hidden="true">{project.index}</div>
+  <div class="project-title">
+    <p>{project.englishTitle}</p>
+    <h3>{project.title}</h3>
+  </div>
+  <p class="project-summary">{project.summary}</p>
+  <div class="project-foot">
+    <ul class="tag-list" aria-label="项目关键词">
+      {project.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    <span class="round-arrow is-static" aria-hidden="true">
+      <ArrowUpRight size={18} strokeWidth={1.8} />
+    </span>
+  </div>
+</article>

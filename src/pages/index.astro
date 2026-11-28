@@ -1,0 +1,129 @@
+---
+import { getCollection } from "astro:content";
+import { ArrowRight, ArrowUpRight } from "lucide-astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import ProjectRow from "../components/ProjectRow.astro";
+import { projects } from "../data/projects";
+import { site } from "../site";
+import { sortByDateDesc, withBase } from "../utils";
+
+const posts = (await getCollection("blog")).sort(sortByDateDesc);
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const recent = posts.filter((post) => post.id !== featured.id).slice(0, 2);
+---
+
+<BaseLayout>
+  <section class="home-hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Wu Shuai / Field Notes</p>
+        <h1 class="hero-title">
+          写具体的，
+          <em>不写正确的。</em>
+        </h1>
+        <p class="hero-description">
+          我是吴帅，在安徽信息工程学院工作。这里记录教学现场的判断、推荐系统的研究，以及一个个系统项目从想法到落地的过程。
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href={withBase("/writing/")}>
+            读最新文章
+            <ArrowRight size={17} aria-hidden="true" />
+          </a>
+          <a class="button button-secondary" href={withBase("/projects/")}>
+            看看做过的项目
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <aside class="now-panel" aria-label="近况">
+        <div class="now-head">
+          <img
+            src={withBase("/assets/avatar.jpg")}
+            alt="吴帅的头像"
+            width="58"
+            height="58"
+          />
+          <div>
+            <p>{site.title}</p>
+            <span>{site.location} · {site.role}</span>
+          </div>
+        </div>
+        <dl class="now-list">
+          <div>
+            <dt>现在</dt>
+            <dd>教学、科研与系统项目并行</dd>
+          </div>
+          <div>
+            <dt>关注</dt>
+            <dd>推荐系统 · 学习者建模 · 知识图谱</dd>
+          </div>
+          <div>
+            <dt>写作</dt>
+            <dd>教学现场 / 职业选择 / 项目复盘</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-heading">
+        <div>
+          <p class="section-kicker">Latest Writing</p>
+          <h2>最近写下的事</h2>
+        </div>
+        <a class="section-link" href={withBase("/writing/")}>
+          全部 {posts.length} 篇
+          <ArrowRight size={15} aria-hidden="true" />
+        </a>
+      </header>
+
+      <div class="writing-showcase">
+        {featured && <PostCard post={featured} index="01" featured />}
+        <div class="post-stack">
+          {
+            recent.map((post, index) => (
+              <PostCard post={post} index={String(index + 2).padStart(2, "0")} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-band">
+    <div class="container">
+      <header class="section-heading">
+        <div>
+          <p class="section-kicker">Selected Systems</p>
+          <h2>从算法到系统</h2>
+        </div>
+        <a class="section-link" href={withBase("/projects/")}>
+          项目索引
+          <ArrowRight size={15} aria-hidden="true" />
+        </a>
+      </header>
+      {projects.map((project) => <ProjectRow project={project} />)}
+    </div>
+  </section>
+
+  <section class="profile-strip">
+    <div class="container profile-strip-grid">
+      <blockquote class="profile-quote">
+        “上课不是把话说完，是把人带到位。”
+        <span>
+          教学和做系统有相似的地方：都要先理解真实的人，再决定技术应该停在哪里。
+        </span>
+      </blockquote>
+      <div class="stat-grid" aria-label="个人成果概览">
+        <div class="stat"><strong>04</strong><span>论文成果</span></div>
+        <div class="stat"><strong>05</strong><span>发明专利</span></div>
+        <div class="stat"><strong>04</strong><span>软件著作权</span></div>
+        <div class="stat"><strong>03</strong><span>项目与研究</span></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
