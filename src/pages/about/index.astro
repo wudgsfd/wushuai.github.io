@@ -9,26 +9,6 @@ import { withBase } from "../../utils";
   title="关于"
   description="吴帅，安徽信息工程学院教师，研究方向为个性化推荐、隐式反馈建模、学习者建模与知识图谱。"
 >
-  <header class="about-hero">
-    <div class="container about-hero-grid">
-      <div>
-        <p class="about-lead">
-          硕士毕业于江苏海洋大学模式识别与智能系统专业，本科就读于安徽大学江淮学院计算机科学与技术专业，现就职于安徽信息工程学院。研究围绕个性化推荐展开，也做知识图谱导学、在线教育与推荐系统相关工程。
-        </p>
-      </div>
-      <div class="about-portrait">
-        <div class="about-frame">
-          <img src={withBase("/assets/avatar.jpg")} alt="吴帅的头像" width="92" height="92" />
-          <div>
-            <p>{site.title}</p>
-            <span>{site.role}</span>
-            <span>{site.location}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <div class="container about-layout">
     <aside class="about-aside" aria-label="关于页面目录">
       <nav>
@@ -43,7 +23,7 @@ import { withBase } from "../../utils";
 
     <div>
       <section id="profile" class="about-section">
-        <h2>个人介绍 <span>Profile</span></h2>
+        <h1>个人介绍 <span>Profile</span></h1>
         <p>
           研究和工程工作围绕推荐系统展开：从个性化推荐中的隐式反馈建模，到融合特征提取与注意力机制的自适应学习推荐。工程侧做过知识图谱导学平台与在线教育系统，另有若干推荐算法相关发明专利。
         </p>

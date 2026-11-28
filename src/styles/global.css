@@ -975,68 +975,11 @@ main {
   font-size: 14px;
 }
 
-.about-hero {
-  padding: 56px 0 48px;
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.about-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.55fr);
-  gap: 80px;
-  align-items: center;
-}
-
-.about-hero h1 {
-  margin-bottom: 22px;
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 36px;
-  font-weight: 600;
-  line-height: 1.18;
-}
-
-.about-lead {
-  max-width: 710px;
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 16px;
-  line-height: 1.9;
-}
-
-.about-portrait {
-  padding-left: 32px;
-  border-left: 1px solid var(--line-dark);
-}
-
-.about-portrait img {
-  width: 92px;
-  height: 92px;
-  margin-bottom: 20px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  object-fit: cover;
-  filter: saturate(0.78);
-}
-
-.about-portrait p {
-  margin-bottom: 7px;
-  color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 22px;
-}
-
-.about-portrait span {
-  display: block;
-  color: var(--muted);
-  font-size: 13px;
-}
-
 .about-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 70px;
-  padding: 70px 0 90px;
+  padding: 54px 0 90px;
 }
 
 .about-aside {
@@ -1070,6 +1013,7 @@ main {
   border-top: 1px solid var(--line-dark);
 }
 
+.about-section h1,
 .about-section h2 {
   margin-bottom: 24px;
   color: var(--ink);
@@ -1078,6 +1022,7 @@ main {
   font-weight: 600;
 }
 
+.about-section h1 span,
 .about-section h2 span {
   margin-left: 9px;
   color: var(--faint);
@@ -1677,10 +1622,6 @@ main {
     gap: 20px;
   }
 
-  .about-hero-grid {
-    gap: 45px;
-  }
-
   .about-layout {
     grid-template-columns: 170px minmax(0, 1fr);
     gap: 45px;
@@ -1799,41 +1740,10 @@ main {
     flex-direction: column;
   }
 
-  .about-hero {
-    padding: 48px 0 38px;
-  }
-
-  .about-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .about-hero h1 {
-    font-size: 31px;
-  }
-
-  .about-portrait {
-    padding: 22px 0 0;
-    border-top: 1px solid var(--line-dark);
-    border-left: 0;
-  }
-
-  .about-frame {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .about-portrait img {
-    width: 68px;
-    height: 68px;
-    margin: 0;
-  }
-
   .about-layout {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding-top: 45px;
+    padding-top: 36px;
   }
 
   .about-aside nav {
@@ -2038,10 +1948,7 @@ main {
     font-size: 24px;
   }
 
-  .about-hero h1 {
-    font-size: 30px;
-  }
-
+  .about-section h1,
   .about-section h2 {
     font-size: 24px;
   }
